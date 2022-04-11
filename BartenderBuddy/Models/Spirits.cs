@@ -7,6 +7,6 @@ namespace BartenderBuddy.Models
     public class Spirits
     {
         public int Id { get; set; }
-        public string Content { get; set; }
+        public string content { get; set; }
     }
 }

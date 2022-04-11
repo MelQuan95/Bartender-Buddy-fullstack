@@ -28,6 +28,7 @@ namespace BartenderBuddy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUserProfileRepository, UserProfileRepository>();
+            services.AddTransient<ISpiritRepository, SpiritRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -43,6 +44,14 @@ namespace BartenderBuddy
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BartenderBuddy v1"));
+
+                // Do not block requests while in development
+                app.UseCors(options =>
+                {
+                    options.AllowAnyOrigin();
+                    options.AllowAnyMethod();
+                    options.AllowAnyHeader();
+                });
             }
 
             app.UseHttpsRedirection();

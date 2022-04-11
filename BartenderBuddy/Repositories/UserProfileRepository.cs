@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using BartenderBuddy.Models;
 using BartenderBuddy.Utils;
